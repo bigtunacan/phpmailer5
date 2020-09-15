@@ -1,5 +1,5 @@
 {
-    "name": "jseeley/phpmailer5",
+    "name": "bigtunacan/phpmailer5",
     "type": "library",
     "description": "PHPMailer5 is a full-featured email creation and transfer class for PHP",
     "authors": [
