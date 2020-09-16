@@ -1,8 +1,8 @@
 <?php
 /*
- * ntlm_sasl_client.php
+ * ntlm_sasl_client5.php
  *
- * @(#) $Id: ntlm_sasl_client.php,v 1.3 2004/11/17 08:00:37 mlemos Exp $
+ * @(#) $Id: ntlm_sasl_client5.php,v 1.3 2004/11/17 08:00:37 mlemos Exp $
  *
  */
 
@@ -13,7 +13,7 @@ define("SASL_NTLM_STATE_DONE", 3);
 define("SASL_FAIL", -1);
 define("SASL_CONTINUE", 1);
 
-class ntlm_sasl_client_class
+class ntlm_sasl_client_class5
 {
     public $credentials = array();
     public $state = SASL_NTLM_STATE_START;

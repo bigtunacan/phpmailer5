@@ -1221,8 +1221,8 @@ EOT;
     public function testIcal()
     {
         //Standalone ICS tests
-        require_once realpath(self::INCLUDE_DIR . 'extras/EasyPeasyICS.php');
-        $ICS = new EasyPeasyICS("PHPMailer test calendar");
+        require_once realpath(self::INCLUDE_DIR . 'extras/EasyPeasyICS5.php');
+        $ICS = new EasyPeasyICS5("PHPMailer test calendar");
         $this->assertNotEmpty(
             $ICS->addEvent(
                 strtotime('tomorrow 10:00 Europe/Paris'),
@@ -2119,7 +2119,7 @@ EOT;
         sleep(2);
         //Test a known-good login
         $this->assertTrue(
-            POP3::popBeforeSmtp('localhost', 1100, 10, 'user', 'test', $this->Mail->SMTPDebug),
+            POP35::popBeforeSmtp('localhost', 1100, 10, 'user', 'test', $this->Mail->SMTPDebug),
             'POP before SMTP failed'
         );
         //Kill the fake server
@@ -2141,7 +2141,7 @@ EOT;
         sleep(2);
         //Test a known-bad login
         $this->assertFalse(
-            POP3::popBeforeSmtp('localhost', 1101, 10, 'user', 'xxx', $this->Mail->SMTPDebug),
+            POP35::popBeforeSmtp('localhost', 1101, 10, 'user', 'xxx', $this->Mail->SMTPDebug),
             'POP before SMTP should have failed'
         );
         shell_exec('kill -TERM ' . escapeshellarg($pid));

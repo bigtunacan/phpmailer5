@@ -49,7 +49,7 @@ try {
     $mail->action_function = 'callbackAction';
     $mail->send();
     echo "Message Sent OK</p>\n";
-} catch (phpmailerException $e) {
+} catch (phpmailer5Exception $e) {
     echo $e->errorMessage(); //Pretty error messages from PHPMailer5
 } catch (Exception $e) {
     echo $e->getMessage(); //Boring error messages from anything else!

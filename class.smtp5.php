@@ -24,7 +24,7 @@
  * @author Chris Ryan
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  */
-class SMTP
+class SMTP5
 {
     /**
      * The PHPMailer5 SMTP version number.
@@ -79,7 +79,7 @@ class SMTP
      * The PHPMailer5 SMTP Version number.
      * @var string
      * @deprecated Use the `VERSION` constant instead
-     * @see SMTP::VERSION
+     * @see SMTP5::VERSION
      */
     public $Version = '5.2.22';
 
@@ -87,7 +87,7 @@ class SMTP
      * SMTP server port number.
      * @var integer
      * @deprecated This is only ever used as a default value, so use the `DEFAULT_SMTP_PORT` constant instead
-     * @see SMTP::DEFAULT_SMTP_PORT
+     * @see SMTP5::DEFAULT_SMTP_PORT
      */
     public $SMTP_PORT = 25;
 
@@ -95,7 +95,7 @@ class SMTP
      * SMTP reply line ending.
      * @var string
      * @deprecated Use the `CRLF` constant instead
-     * @see SMTP::CRLF
+     * @see SMTP5::CRLF
      */
     public $CRLF = "\r\n";
 
@@ -204,11 +204,11 @@ class SMTP
 
     /**
      * Output debugging info via a user-selected method.
-     * @see SMTP::$Debugoutput
-     * @see SMTP::$do_debug
      * @param string $str Debug string to output
      * @param integer $level The debug level of this message; see DEBUG_* constants
      * @return void
+     *@see SMTP5::$do_debug
+     * @see SMTP5::$Debugoutput
      */
     protected function edebug($str, $level = 0)
     {
@@ -381,7 +381,7 @@ class SMTP
      * @param string $authtype The auth type (PLAIN, LOGIN, NTLM, CRAM-MD5, XOAUTH2)
      * @param string $realm The auth realm for NTLM
      * @param string $workstation The auth workstation for NTLM
-     * @param null|OAuth $OAuth An optional OAuth instance (@see PHPMailerOAuth)
+     * @param null|OAuth $OAuth An optional OAuth instance (@see PHPMailer5OAuth)
      * @return bool True if successfully authenticated.* @access public
      */
     public function authenticate(
@@ -464,7 +464,7 @@ class SMTP
                 break;
             case 'XOAUTH2':
                 //If the OAuth Instance is not set. Can be a case when PHPMailer5 is used
-                //instead of PHPMailerOAuth
+                //instead of PHPMailer5OAuth
                 if (is_null($OAuth)) {
                     return false;
                 }
@@ -477,16 +477,16 @@ class SMTP
                 break;
             case 'NTLM':
                 /*
-                 * ntlm_sasl_client.php
+                 * ntlm_sasl_client5.php
                  * Bundled with Permission
                  *
                  * How to telnet in windows:
                  * http://technet.microsoft.com/en-us/library/aa995718%28EXCHG.65%29.aspx
                  * PROTOCOL Docs http://curl.haxx.se/rfc/ntlm.html#ntlmSmtpAuthentication
                  */
-                require_once 'extras/ntlm_sasl_client.php';
+                require_once 'extras/ntlm_sasl_client5.php';
                 $temp = new stdClass;
-                $ntlm_client = new ntlm_sasl_client_class;
+                $ntlm_client = new ntlm_sasl_client_class5;
                 //Check that functions are available
                 if (!$ntlm_client->initialize($temp)) {
                     $this->setError($temp->error);

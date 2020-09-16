@@ -20,13 +20,13 @@
     },
     "autoload": {
         "classmap": [
-            "class.phpmailer.php",
-            "class.phpmaileroauth.php",
-            "class.phpmaileroauthgoogle.php",
-            "class.smtp.php",
-            "class.pop3.php",
-            "extras/EasyPeasyICS.php",
-            "extras/ntlm_sasl_client.php"
+            "class.phpmailer5.php",
+            "class.phpmailer5oauth.php",
+            "class.phpmailer5oauthgoogle.php",
+            "class.smtp5.php",
+            "class.pop35.php",
+            "extras/EasyPeasyICS5.php",
+            "extras/ntlm_sasl_client5.php"
         ]
     },
     "license": "LGPL-2.1"

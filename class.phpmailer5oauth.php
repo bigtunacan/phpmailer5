@@ -18,12 +18,12 @@
  */
 
 /**
- * PHPMailerOAuth - PHPMailer subclass adding OAuth support.
- * @package PHPMailer
+ * PHPMailer5OAuth - PHPMailer5 subclass adding OAuth support.
+ * @package PHPMailer5
  * @author @sherryl4george
  * @author Marcus Bointon (@Synchro) <phpmailer@synchromedia.co.uk>
  */
-class PHPMailerOAuth extends PHPMailer5
+class PHPMailer5OAuth extends PHPMailer5
 {
     /**
      * The OAuth user's email address
@@ -50,20 +50,20 @@ class PHPMailerOAuth extends PHPMailer5
     public $oauthClientSecret = '';
 
     /**
-     * An instance of the PHPMailerOAuthGoogle class.
-     * @var PHPMailerOAuthGoogle
+     * An instance of the PHPMailer5OAuthGoogle class.
+     * @var PHPMailer5OAuthGoogle
      * @access protected
      */
     protected $oauth = null;
 
     /**
-     * Get a PHPMailerOAuthGoogle instance to use.
-     * @return PHPMailerOAuthGoogle
+     * Get a PHPMailer5OAuthGoogle instance to use.
+     * @return PHPMailer5OAuthGoogle
      */
     public function getOAUTHInstance()
     {
         if (!is_object($this->oauth)) {
-            $this->oauth = new PHPMailerOAuthGoogle(
+            $this->oauth = new PHPMailer5OAuthGoogle(
                 $this->oauthUserEmail,
                 $this->oauthClientSecret,
                 $this->oauthClientId,
@@ -77,10 +77,10 @@ class PHPMailerOAuth extends PHPMailer5
      * Initiate a connection to an SMTP server.
      * Overrides the original smtpConnect method to add support for OAuth.
      * @param array $options An array of options compatible with stream_context_create()
-     * @uses SMTP
-     * @access public
      * @return bool
-     * @throws phpmailerException
+     * @throws phpmailer5Exception
+     *@uses SMTP5
+     * @access public
      */
     public function smtpConnect($options = array())
     {
@@ -132,7 +132,7 @@ class PHPMailerOAuth extends PHPMailer5
             if ('tls' === $secure or 'ssl' === $secure) {
                 //Check for an OpenSSL constant rather than using extension_loaded, which is sometimes disabled
                 if (!$sslext) {
-                    throw new phpmailerException($this->lang('extension_missing').'openssl', self::STOP_CRITICAL);
+                    throw new phpmailer5Exception($this->lang('extension_missing').'openssl', self::STOP_CRITICAL);
                 }
             }
             $host = $hostinfo[3];
@@ -159,7 +159,7 @@ class PHPMailerOAuth extends PHPMailer5
                     }
                     if ($tls) {
                         if (!$this->smtp->startTLS()) {
-                            throw new phpmailerException($this->lang('connect_host'));
+                            throw new phpmailer5Exception($this->lang('connect_host'));
                         }
                         // We must resend HELO after tls negotiation
                         $this->smtp->hello($hello);
@@ -174,11 +174,11 @@ class PHPMailerOAuth extends PHPMailer5
                             $this->oauth
                         )
                         ) {
-                            throw new phpmailerException($this->lang('authenticate'));
+                            throw new phpmailer5Exception($this->lang('authenticate'));
                         }
                     }
                     return true;
-                } catch (phpmailerException $exc) {
+                } catch (phpmailer5Exception $exc) {
                     $lastexception = $exc;
                     $this->edebug($exc->getMessage());
                     // We must have connected, but then failed TLS or Auth, so close connection nicely

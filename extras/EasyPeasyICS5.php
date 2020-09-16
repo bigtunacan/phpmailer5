@@ -1,6 +1,6 @@
 <?php
 /**
- * EasyPeasyICS Simple ICS/vCal data generator.
+ * EasyPeasyICS5 Simple ICS/vCal data generator.
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  * @author Manuel Reinhard <manu@sprain.ch>
  *
@@ -12,12 +12,12 @@
  */
 
 /**
- * Class EasyPeasyICS.
+ * Class EasyPeasyICS5.
  * Simple ICS data generator
  * @package phpmailer5
- * @subpackage easypeasyics
+ * @subpackage easypeasyics5
  */
-class EasyPeasyICS
+class EasyPeasyICS5
 {
     /**
      * The name of the calendar
