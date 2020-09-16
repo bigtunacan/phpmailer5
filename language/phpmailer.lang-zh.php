@@ -1,7 +1,7 @@
 <?php
 /**
- * Traditional Chinese PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Traditional Chinese PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author liqwei <liqwei@liqwei.com>
  * @author Peter Dave Hello <@PeterDaveHello/>
  * @author Jason Chiang <xcojad@gmail.com>

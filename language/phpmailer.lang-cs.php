@@ -1,7 +1,7 @@
 <?php
 /**
- * Czech PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Czech PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  */
 
 $PHPMAILER_LANG['authenticate']         = 'Chyba SMTP: Autentizace selhala.';

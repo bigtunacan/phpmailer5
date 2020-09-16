@@ -1,8 +1,8 @@
 <?php
 /**
- * PHPMailer5 RFC821 SMTP email transport class.
+ * PHPMailer RFC821 SMTP email transport class.
  * PHP Version 5
- * @package PHPMailer5
+ * @package PHPMailer
  * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -18,16 +18,16 @@
  */
 
 /**
- * PHPMailer5 RFC821 SMTP email transport class.
+ * PHPMailer RFC821 SMTP email transport class.
  * Implements RFC 821 SMTP commands and provides some utility methods for sending mail to an SMTP server.
- * @package PHPMailer5
+ * @package PHPMailer
  * @author Chris Ryan
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  */
 class SMTP
 {
     /**
-     * The PHPMailer5 SMTP version number.
+     * The PHPMailer SMTP version number.
      * @var string
      */
     const VERSION = '5.2.22';
@@ -76,7 +76,7 @@ class SMTP
     const DEBUG_LOWLEVEL = 4;
 
     /**
-     * The PHPMailer5 SMTP Version number.
+     * The PHPMailer SMTP Version number.
      * @var string
      * @deprecated Use the `VERSION` constant instead
      * @see SMTP::VERSION
@@ -463,7 +463,7 @@ class SMTP
                 }
                 break;
             case 'XOAUTH2':
-                //If the OAuth Instance is not set. Can be a case when PHPMailer5 is used
+                //If the OAuth Instance is not set. Can be a case when PHPMailer is used
                 //instead of PHPMailerOAuth
                 if (is_null($OAuth)) {
                     return false;

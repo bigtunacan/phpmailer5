@@ -1,7 +1,7 @@
 <?php
 /**
- * Korean PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Korean PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author ChalkPE <amato0617@gmail.com>
  */
 

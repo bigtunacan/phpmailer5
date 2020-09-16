@@ -1,7 +1,7 @@
 <?php
 /**
- * Malaysian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Malaysian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Nawawi Jamili <nawawi@rutweb.com>
  */
 

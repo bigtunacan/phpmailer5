@@ -1,7 +1,7 @@
 <?php
 /**
- * Chinese PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Chinese PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author LiuXin <http://www.80x86.cn/blog/>
  */
 

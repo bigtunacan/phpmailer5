@@ -1,7 +1,7 @@
 <?php
 /**
- * Dutch PHPMailer5 language file: refer to class.phpmailer.php for definitive list.
- * @package PHPMailer5
+ * Dutch PHPMailer language file: refer to class.phpmailer.php for definitive list.
+ * @package PHPMailer
  * @author Tuxion <team@tuxion.nl>
  */
 

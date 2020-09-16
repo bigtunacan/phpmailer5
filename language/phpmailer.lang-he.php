@@ -1,7 +1,7 @@
 <?php
 /**
- * Hebrew PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Hebrew PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Ronny Sherer <ronny@hoojima.com>
  */
 

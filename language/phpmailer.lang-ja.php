@@ -1,7 +1,7 @@
 <?php
 /**
- * Japanese PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Japanese PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Mitsuhiro Yoshida <http://mitstek.com/>
  * @author Yoshi Sakai <http://bluemooninc.jp/>
  */

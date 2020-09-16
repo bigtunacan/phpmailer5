@@ -1,8 +1,8 @@
 <?php
 /**
- * PHPMailer5 - PHP email creation and transport class.
+ * PHPMailer - PHP email creation and transport class.
  * PHP Version 5.4
- * @package PHPMailer5
+ * @package PHPMailer
  * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -19,7 +19,7 @@
 
 /**
  * PHPMailerOAuthGoogle - Wrapper for League OAuth2 Google provider.
- * @package PHPMailer5
+ * @package PHPMailer
  * @author @sherryl4george
  * @author Marcus Bointon (@Synchro) <phpmailer@synchromedia.co.uk>
  * @link https://github.com/thephpleague/oauth2-client

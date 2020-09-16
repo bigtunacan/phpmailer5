@@ -1,7 +1,7 @@
 <?php
 /**
- * Slovak PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Slovak PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Michal Tinka <michaltinka@gmail.com>
  */
 

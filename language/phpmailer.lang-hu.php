@@ -1,7 +1,7 @@
 <?php
 /**
- * Hungarian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Hungarian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author @dominicus-75
  */
 

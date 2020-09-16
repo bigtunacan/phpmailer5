@@ -1,7 +1,7 @@
 <?php
 /**
- * Indonesian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Indonesian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Cecep Prawiro <cecep.prawiro@gmail.com>
  */
 

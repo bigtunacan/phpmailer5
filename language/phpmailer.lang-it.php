@@ -1,7 +1,7 @@
 <?php
 /**
- * Italian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Italian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Ilias Bartolini <brain79@inwind.it>
  * @author Stefano Sabatini <sabas88@gmail.com>
  */

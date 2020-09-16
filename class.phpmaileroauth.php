@@ -23,7 +23,7 @@
  * @author @sherryl4george
  * @author Marcus Bointon (@Synchro) <phpmailer@synchromedia.co.uk>
  */
-class PHPMailerOAuth extends PHPMailer5
+class PHPMailerOAuth extends PHPMailer
 {
     /**
      * The OAuth user's email address

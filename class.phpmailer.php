@@ -1,9 +1,9 @@
 <?php
 /**
- * PHPMailer5 - PHP email creation and transport class.
+ * PHPMailer - PHP email creation and transport class.
  * PHP Version 5
- * @package PHPMailer5
- * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer5 GitHub project
+ * @package PHPMailer
+ * @link https://github.com/PHPMailer/PHPMailer/ The PHPMailer GitHub project
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
  * @author Andy Prevost (codeworxtech) <codeworxtech@users.sourceforge.net>
@@ -18,17 +18,17 @@
  */
 
 /**
- * PHPMailer5 - PHP email creation and transport class.
- * @package PHPMailer5
+ * PHPMailer - PHP email creation and transport class.
+ * @package PHPMailer
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
  * @author Andy Prevost (codeworxtech) <codeworxtech@users.sourceforge.net>
  * @author Brent R. Matzelle (original founder)
  */
-class PHPMailer5
+class PHPMailer
 {
     /**
-     * The PHPMailer5 Version number.
+     * The PHPMailer Version number.
      * @var string
      */
     public $Version = '5.2.22';
@@ -176,7 +176,7 @@ class PHPMailer5
     public $UseSendmailOptions = true;
 
     /**
-     * Path to PHPMailer5 plugins.
+     * Path to PHPMailer plugins.
      * Useful if the SMTP class is not in the PHP include path.
      * @var string
      * @deprecated Should not be needed now there is an autoloader.
@@ -191,7 +191,7 @@ class PHPMailer5
 
     /**
      * The hostname to use in the Message-ID header and as default HELO string.
-     * If empty, PHPMailer5 attempts to find one with, in order,
+     * If empty, PHPMailer attempts to find one with, in order,
      * $_SERVER['SERVER_NAME'], gethostname(), php_uname('n'), or the value
      * 'localhost.localdomain'.
      * @var string
@@ -237,10 +237,10 @@ class PHPMailer5
 
     /**
      * The SMTP HELO of the message.
-     * Default is $Hostname. If $Hostname is empty, PHPMailer5 attempts to find
+     * Default is $Hostname. If $Hostname is empty, PHPMailer attempts to find
      * one with the same method described above for $Hostname.
      * @var string
-     * @see PHPMailer5::$Hostname
+     * @see PHPMailer::$Hostname
      */
     public $Helo = '';
 
@@ -263,8 +263,8 @@ class PHPMailer5
      * Whether to use SMTP authentication.
      * Uses the Username and Password properties.
      * @var boolean
-     * @see PHPMailer5::$Username
-     * @see PHPMailer5::$Password
+     * @see PHPMailer::$Username
+     * @see PHPMailer::$Password
      */
     public $SMTPAuth = false;
 
@@ -452,7 +452,7 @@ class PHPMailer5
 
     /**
      * What to put in the X-Mailer header.
-     * Options: An empty string for PHPMailer5 default, whitespace for none, or a string to use
+     * Options: An empty string for PHPMailer default, whitespace for none, or a string to use
      * @var string
      */
     public $XMailer = '';
@@ -460,7 +460,7 @@ class PHPMailer5
     /**
      * Which validator to use by default when validating email addresses.
      * May be a callable to inject your own validator, but there are several built-in validators.
-     * @see PHPMailer5::validateAddress()
+     * @see PHPMailer::validateAddress()
      * @var string|callable
      * @static
      */
@@ -506,7 +506,7 @@ class PHPMailer5
      * Includes all of $to, $cc, $bcc
      * @var array
      * @access protected
-     * @see PHPMailer5::$to @see PHPMailer5::$cc @see PHPMailer5::$bcc
+     * @see PHPMailer::$to @see PHPMailer::$cc @see PHPMailer::$bcc
      */
     protected $all_recipients = array();
 
@@ -517,8 +517,8 @@ class PHPMailer5
      * This array is used only for addresses with IDN.
      * @var array
      * @access protected
-     * @see PHPMailer5::$to @see PHPMailer5::$cc @see PHPMailer5::$bcc
-     * @see PHPMailer5::$all_recipients
+     * @see PHPMailer::$to @see PHPMailer::$cc @see PHPMailer::$bcc
+     * @see PHPMailer::$all_recipients
      */
     protected $RecipientsQueue = array();
 
@@ -528,7 +528,7 @@ class PHPMailer5
      * This array is used only for addresses with IDN.
      * @var array
      * @access protected
-     * @see PHPMailer5::$ReplyTo
+     * @see PHPMailer::$ReplyTo
      */
     protected $ReplyToQueue = array();
 
@@ -703,10 +703,10 @@ class PHPMailer5
     }
     /**
      * Output debugging info via user-defined method.
-     * Only generates output if SMTP debug output is enabled (@see SMTP::$do_debug).
-     * @see PHPMailer5::$Debugoutput
-     * @see PHPMailer5::$SMTPDebug
-     * @param string $str
+     * Only generates output if SMTP debug output is enabled (@param string $str
+     *@see PHPMailer::$Debugoutput
+     * @see PHPMailer::$SMTPDebug
+     * @see SMTP::$do_debug).
      */
     protected function edebug($str)
     {
@@ -855,8 +855,8 @@ class PHPMailer5
     }
 
     /**
-     * Add an address to one of the recipient arrays or to the ReplyTo array. Because PHPMailer5
-     * can't validate addresses with an IDN without knowing the PHPMailer5::$CharSet (that can still
+     * Add an address to one of the recipient arrays or to the ReplyTo array. Because PHPMailer
+     * can't validate addresses with an IDN without knowing the PHPMailer::$CharSet (that can still
      * be modified after calling this function), addition of such addresses is delayed until send().
      * Addresses that have been added already return false, but do not throw exceptions.
      * @param string $kind One of 'to', 'cc', 'bcc', or 'ReplyTo'
@@ -881,7 +881,7 @@ class PHPMailer5
             return false;
         }
         $params = array($kind, $address, $name);
-        // Enqueue addresses with IDN until we know the PHPMailer5::$CharSet.
+        // Enqueue addresses with IDN until we know the PHPMailer::$CharSet.
         if ($this->has8bitChars(substr($address, ++$pos)) and $this->idnSupported()) {
             if ($kind != 'Reply-To') {
                 if (!array_key_exists($address, $this->RecipientsQueue)) {
@@ -1057,10 +1057,10 @@ class PHPMailer5
      * * `html5` Use the pattern given by the HTML5 spec for 'email' type form input elements.
      * * `noregex` Don't use a regex: super fast, really dumb.
      * Alternatively you may pass in a callable to inject your own validator, for example:
-     * PHPMailer5::validateAddress('user@example.com', function($address) {
+     * PHPMailer::validateAddress('user@example.com', function($address) {
      *     return (strpos($address, '@') !== false);
      * });
-     * You can also set the PHPMailer5::$validator static to a callable, allowing built-in methods to use your validator.
+     * You can also set the PHPMailer::$validator static to a callable, allowing built-in methods to use your validator.
      * @return boolean
      * @static
      * @access public
@@ -1169,14 +1169,14 @@ class PHPMailer5
 
     /**
      * Converts IDN in given email address to its ASCII form, also known as punycode, if possible.
-     * Important: Address must be passed in same encoding as currently set in PHPMailer5::$CharSet.
+     * Important: Address must be passed in same encoding as currently set in PHPMailer::$CharSet.
      * This function silently returns unmodified address if:
      * - No conversion is necessary (i.e. domain name is not an IDN, or is already in ASCII form)
      * - Conversion to punycode is impossible (e.g. required PHP functions are not available)
      *   or fails for any reason (e.g. domain has characters not allowed in an IDN)
-     * @see PHPMailer5::$CharSet
      * @param string $address The email address to convert
      * @return string The encoded address in ASCII form
+     *@see PHPMailer::$CharSet
      */
     public function punyencodeAddress($address)
     {
@@ -1357,10 +1357,10 @@ class PHPMailer5
      * Send mail using the $Sendmail program.
      * @param string $header The message headers
      * @param string $body The message body
-     * @see PHPMailer5::$Sendmail
-     * @throws phpmailerException
-     * @access protected
      * @return boolean
+     *@throws phpmailerException
+     * @access protected
+     * @see PHPMailer::$Sendmail
      */
     protected function sendmailSend($header, $body)
     {
@@ -1526,13 +1526,13 @@ class PHPMailer5
      * Send mail via SMTP.
      * Returns false if there is a bad MAIL FROM, RCPT, or DATA input.
      * Uses the PHPMailerSMTP class by default.
-     * @see PHPMailer5::getSMTPInstance() to use a different class.
      * @param string $header The message headers
      * @param string $body The message body
-     * @throws phpmailerException
+     * @return boolean
+     *@throws phpmailerException
      * @uses SMTP
      * @access protected
-     * @return boolean
+     * @see PHPMailer::getSMTPInstance() to use a different class.
      */
     protected function smtpSend($header, $body)
     {
@@ -2169,9 +2169,9 @@ class PHPMailer5
      * Returns the whole MIME message.
      * Includes complete headers and body.
      * Only valid post preSend().
-     * @see PHPMailer5::preSend()
-     * @access public
      * @return string
+     *@see PHPMailer::preSend()
+     * @access public
      */
     public function getSentMIMEMessage()
     {
@@ -2444,7 +2444,7 @@ class PHPMailer5
 
     /**
      * Set the message type.
-     * PHPMailer5 only supports some preset message types, not arbitrary MIME structures.
+     * PHPMailer only supports some preset message types, not arbitrary MIME structures.
      * @access protected
      * @return void
      */
@@ -2912,12 +2912,12 @@ class PHPMailer5
 
     /**
      * Backward compatibility wrapper for an old QP encoding function that was removed.
-     * @see PHPMailer5::encodeQP()
-     * @access public
      * @param string $string
      * @param integer $line_max
      * @param boolean $space_conv
      * @return string
+     * @see PHPMailer::encodeQP()
+     * @access public
      * @deprecated Use encodeQP instead.
      */
     public function encodeQPphp(
@@ -3391,8 +3391,8 @@ class PHPMailer5
      * @param string $message HTML message string
      * @param string $basedir Absolute path to a base directory to prepend to relative paths to images
      * @param boolean|callable $advanced Whether to use the internal HTML to text converter
-     *    or your own custom converter @see PHPMailer5::html2text()
-     * @return string $message The transformed message Body
+     *    or your own custom converter @return string $message The transformed message Body
+     *@see PHPMailer::html2text()
      */
     public function msgHTML($message, $basedir = '', $advanced = false)
     {
@@ -4022,8 +4022,8 @@ class PHPMailer5
 }
 
 /**
- * PHPMailer5 exception handler
- * @package PHPMailer5
+ * PHPMailer exception handler
+ * @package PHPMailer
  */
 class phpmailerException extends Exception
 {

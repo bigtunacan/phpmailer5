@@ -1,11 +1,11 @@
 <?php
 /**
- * PHPMailer5 - language file tests
+ * PHPMailer - language file tests
  * Requires PHPUnit 3.3 or later.
  *
  * PHP version 5.0.0
  *
- * @package PHPMailer5
+ * @package PHPMailer
  * @author Andy Prevost
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  * @copyright 2004 - 2009 Andy Prevost
@@ -16,7 +16,7 @@
 require_once '../PHPMailerAutoload.php';
 
 /**
- * PHPMailer5 - PHP email transport unit test class
+ * PHPMailer - PHP email transport unit test class
  * Performs authentication tests
  */
 class PHPMailerLangTest extends PHPUnit_Framework_TestCase
@@ -24,7 +24,7 @@ class PHPMailerLangTest extends PHPUnit_Framework_TestCase
     /**
      * Holds a phpmailer instance.
      * @private
-     * @var PHPMailer5
+     * @var PHPMailer
      */
     public $Mail;
 
@@ -38,7 +38,7 @@ class PHPMailerLangTest extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->Mail = new PHPMailer5;
+        $this->Mail = new PHPMailer;
     }
 
     /**

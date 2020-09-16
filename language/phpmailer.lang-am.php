@@ -1,7 +1,7 @@
 <?php
 /**
- * Armenian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Armenian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Hrayr Grigoryan <hrayr@bits.am>
  */
  

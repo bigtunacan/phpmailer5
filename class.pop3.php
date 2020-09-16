@@ -1,8 +1,8 @@
 <?php
 /**
- * PHPMailer5 POP-Before-SMTP Authentication Class.
+ * PHPMailer POP-Before-SMTP Authentication Class.
  * PHP Version 5
- * @package PHPMailer5
+ * @package PHPMailer
  * @link https://github.com/PHPMailer/PHPMailer/
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -18,10 +18,10 @@
  */
 
 /**
- * PHPMailer5 POP-Before-SMTP Authentication Class.
- * Specifically for PHPMailer5 to use for RFC1939 POP-before-SMTP authentication.
+ * PHPMailer POP-Before-SMTP Authentication Class.
+ * Specifically for PHPMailer to use for RFC1939 POP-before-SMTP authentication.
  * Does not support APOP.
- * @package PHPMailer5
+ * @package PHPMailer
  * @author Richard Davey (original author) <rich@corephp.co.uk>
  * @author Marcus Bointon (Synchro/coolbru) <phpmailer@synchromedia.co.uk>
  * @author Jim Jagielski (jimjag) <jimjag@gmail.com>
@@ -30,7 +30,7 @@
 class POP3
 {
     /**
-     * The POP3 PHPMailer5 Version number.
+     * The POP3 PHPMailer Version number.
      * @var string
      * @access public
      */

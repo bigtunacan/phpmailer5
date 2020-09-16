@@ -1,7 +1,7 @@
 <?php
 /**
- * Catalan PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Catalan PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Ivan <web AT microstudi DOT com>
  */
 

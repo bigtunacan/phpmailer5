@@ -1,7 +1,7 @@
 <?php
 /**
- * Portuguese (European) PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Portuguese (European) PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Jonadabe <jonadabe@hotmail.com>
  */
 

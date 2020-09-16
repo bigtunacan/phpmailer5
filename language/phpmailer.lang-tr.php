@@ -1,7 +1,7 @@
 <?php
 /**
- * Turkish PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Turkish PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Elçin Özel
  * @author Can Yılmaz
  * @author Mehmet Benlioğlu

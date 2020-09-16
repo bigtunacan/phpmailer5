@@ -1,7 +1,7 @@
 <?php
 /**
- * Slovene PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Slovene PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Klemen Tušar <techouse@gmail.com>
  */
 

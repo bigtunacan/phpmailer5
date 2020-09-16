@@ -1,7 +1,7 @@
 <?php
 /**
- * Estonian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Estonian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Indrek Päri
  * @author Elan Ruusamäe <glen@delfi.ee>
  */

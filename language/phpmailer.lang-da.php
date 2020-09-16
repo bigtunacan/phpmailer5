@@ -1,7 +1,7 @@
 <?php
 /**
- * Danish PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Danish PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Mikael Stokkebro <info@stokkebro.dk>
  */
 

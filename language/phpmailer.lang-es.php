@@ -1,7 +1,7 @@
 <?php
 /**
- * Spanish PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Spanish PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Matt Sturdy <matt.sturdy@gmail.com>
  */
 

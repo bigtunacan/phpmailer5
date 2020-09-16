@@ -1,11 +1,11 @@
 <?php
 /**
- * PHPMailer5 - PHP email transport unit tests
+ * PHPMailer - PHP email transport unit tests
  * Requires PHPUnit 3.3 or later.
  *
  * PHP version 5.0.0
  *
- * @package PHPMailer5
+ * @package PHPMailer
  * @author Andy Prevost
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  * @copyright 2004 - 2009 Andy Prevost
@@ -16,7 +16,7 @@
 require_once realpath('../PHPMailerAutoload.php');
 
 /**
- * PHPMailer5 - PHP email transport unit test class
+ * PHPMailer - PHP email transport unit test class
  * Performs authentication tests
  */
 class PHPMailerTest extends PHPUnit_Framework_TestCase
@@ -24,7 +24,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
     /**
      * Holds the default phpmailer instance.
      * @private
-     * @var PHPMailer5
+     * @var PHPMailer
      */
     public $Mail;
 
@@ -70,7 +70,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
         if (file_exists('testbootstrap.php')) {
             include 'testbootstrap.php'; //Overrides go in here
         }
-        $this->Mail = new PHPMailer5;
+        $this->Mail = new PHPMailer;
         $this->Mail->SMTPDebug = 3; //Full debug output
         $this->Mail->Priority = 3;
         $this->Mail->Encoding = '8bit';
@@ -623,13 +623,13 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
         );
         $goodfails = array();
         foreach (array_merge($validaddresses, $asciiaddresses) as $address) {
-            if (!PHPMailer5::validateAddress($address)) {
+            if (!PHPMailer::validateAddress($address)) {
                 $goodfails[] = $address;
             }
         }
         $badpasses = array();
         foreach (array_merge($invalidaddresses, $unicodeaddresses) as $address) {
-            if (PHPMailer5::validateAddress($address)) {
+            if (PHPMailer::validateAddress($address)) {
                 $badpasses[] = $address;
             }
         }
@@ -647,16 +647,16 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
         }
         $this->assertEmpty($err, $err);
         //For coverage
-        $this->assertTrue(PHPMailer5::validateAddress('test@example.com', 'auto'));
-        $this->assertFalse(PHPMailer5::validateAddress('test@example.com.', 'auto'));
-        $this->assertTrue(PHPMailer5::validateAddress('test@example.com', 'pcre'));
-        $this->assertFalse(PHPMailer5::validateAddress('test@example.com.', 'pcre'));
-        $this->assertTrue(PHPMailer5::validateAddress('test@example.com', 'pcre8'));
-        $this->assertFalse(PHPMailer5::validateAddress('test@example.com.', 'pcre8'));
-        $this->assertTrue(PHPMailer5::validateAddress('test@example.com', 'php'));
-        $this->assertFalse(PHPMailer5::validateAddress('test@example.com.', 'php'));
-        $this->assertTrue(PHPMailer5::validateAddress('test@example.com', 'noregex'));
-        $this->assertFalse(PHPMailer5::validateAddress('bad', 'noregex'));
+        $this->assertTrue(PHPMailer::validateAddress('test@example.com', 'auto'));
+        $this->assertFalse(PHPMailer::validateAddress('test@example.com.', 'auto'));
+        $this->assertTrue(PHPMailer::validateAddress('test@example.com', 'pcre'));
+        $this->assertFalse(PHPMailer::validateAddress('test@example.com.', 'pcre'));
+        $this->assertTrue(PHPMailer::validateAddress('test@example.com', 'pcre8'));
+        $this->assertFalse(PHPMailer::validateAddress('test@example.com.', 'pcre8'));
+        $this->assertTrue(PHPMailer::validateAddress('test@example.com', 'php'));
+        $this->assertFalse(PHPMailer::validateAddress('test@example.com.', 'php'));
+        $this->assertTrue(PHPMailer::validateAddress('test@example.com', 'noregex'));
+        $this->assertFalse(PHPMailer::validateAddress('bad', 'noregex'));
     }
 
     /**
@@ -666,7 +666,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
     {
         //Inject a one-off custom validator
         $this->assertTrue(
-            PHPMailer5::validateAddress(
+            PHPMailer::validateAddress(
                 'user@example.com',
                 function ($address) {
                     return (strpos($address, '@') !== false);
@@ -675,7 +675,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
             'Custom validator false negative'
         );
         $this->assertFalse(
-            PHPMailer5::validateAddress(
+            PHPMailer::validateAddress(
                 'userexample.com',
                 function ($address) {
                     return (strpos($address, '@') !== false);
@@ -684,7 +684,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
             'Custom validator false positive'
         );
         //Set the default validator to an injected function
-        PHPMailer5::$validator = function ($address) {
+        PHPMailer::$validator = function ($address) {
             return ('user@example.com' === $address);
         };
         $this->assertTrue(
@@ -698,7 +698,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
             'Custom default validator false positive'
         );
         //Set default validator to PHP built-in
-        PHPMailer5::$validator = 'php';
+        PHPMailer::$validator = 'php';
         $this->assertFalse(
             //This is a valid address that FILTER_VALIDATE_EMAIL thinks is invalid
             $this->Mail->addAddress('first.last@example.123'),
@@ -1351,13 +1351,13 @@ EOT;
      */
     public function testLongBody()
     {
-        $oklen = str_repeat(str_repeat('0', PHPMailer5::MAX_LINE_LENGTH) . PHPMailer5::CRLF, 2);
-        $badlen = str_repeat(str_repeat('1', PHPMailer5::MAX_LINE_LENGTH + 1) . PHPMailer5::CRLF, 2);
+        $oklen = str_repeat(str_repeat('0', PHPMailer::MAX_LINE_LENGTH) . PHPMailer::CRLF, 2);
+        $badlen = str_repeat(str_repeat('1', PHPMailer::MAX_LINE_LENGTH + 1) . PHPMailer::CRLF, 2);
 
         $this->Mail->Body = "This message contains lines that are too long.".
-            PHPMailer5::CRLF . $oklen . $badlen . $oklen;
+            PHPMailer::CRLF . $oklen . $badlen . $oklen;
         $this->assertTrue(
-            PHPMailer5::hasLineLongerThanMax($this->Mail->Body),
+            PHPMailer::hasLineLongerThanMax($this->Mail->Body),
             'Test content does not contain long lines!'
         );
         $this->Mail->isHTML();
@@ -1366,7 +1366,7 @@ EOT;
         $this->Mail->Encoding = '8bit';
         $this->Mail->preSend();
         $message = $this->Mail->getSentMIMEMessage();
-        $this->assertFalse(PHPMailer5::hasLineLongerThanMax($message), 'Long line not corrected.');
+        $this->assertFalse(PHPMailer::hasLineLongerThanMax($message), 'Long line not corrected.');
         $this->assertContains(
             'Content-Transfer-Encoding: quoted-printable',
             $message,
@@ -1379,19 +1379,19 @@ EOT;
      */
     public function testShortBody()
     {
-        $oklen = str_repeat(str_repeat('0', PHPMailer5::MAX_LINE_LENGTH) . PHPMailer5::CRLF, 10);
+        $oklen = str_repeat(str_repeat('0', PHPMailer::MAX_LINE_LENGTH) . PHPMailer::CRLF, 10);
 
         $this->Mail->Body = "This message does not contain lines that are too long.".
-            PHPMailer5::CRLF . $oklen;
+            PHPMailer::CRLF . $oklen;
         $this->assertFalse(
-            PHPMailer5::hasLineLongerThanMax($this->Mail->Body),
+            PHPMailer::hasLineLongerThanMax($this->Mail->Body),
             'Test content contains long lines!'
         );
         $this->buildBody();
         $this->Mail->Encoding = '8bit';
         $this->Mail->preSend();
         $message = $this->Mail->getSentMIMEMessage();
-        $this->assertFalse(PHPMailer5::hasLineLongerThanMax($message), 'Long line not corrected.');
+        $this->assertFalse(PHPMailer::hasLineLongerThanMax($message), 'Long line not corrected.');
         $this->assertNotContains(
             'Content-Transfer-Encoding: quoted-printable',
             $message,
@@ -1853,10 +1853,10 @@ EOT;
         $windowssrc = "hello\r\nWorld\r\nAgain\r\n";
         $mixedsrc = "hello\nWorld\rAgain\r\n";
         $target = "hello\r\nWorld\r\nAgain\r\n";
-        $this->assertEquals($target, PHPMailer5::normalizeBreaks($unixsrc), 'UNIX break reformatting failed');
-        $this->assertEquals($target, PHPMailer5::normalizeBreaks($macsrc), 'Mac break reformatting failed');
-        $this->assertEquals($target, PHPMailer5::normalizeBreaks($windowssrc), 'Windows break reformatting failed');
-        $this->assertEquals($target, PHPMailer5::normalizeBreaks($mixedsrc), 'Mixed break reformatting failed');
+        $this->assertEquals($target, PHPMailer::normalizeBreaks($unixsrc), 'UNIX break reformatting failed');
+        $this->assertEquals($target, PHPMailer::normalizeBreaks($macsrc), 'Mac break reformatting failed');
+        $this->assertEquals($target, PHPMailer::normalizeBreaks($windowssrc), 'Windows break reformatting failed');
+        $this->assertEquals($target, PHPMailer::normalizeBreaks($mixedsrc), 'Mixed break reformatting failed');
     }
 
     /**
@@ -1864,16 +1864,16 @@ EOT;
      */
     public function testLineLength()
     {
-        $oklen = str_repeat(str_repeat('0', PHPMailer5::MAX_LINE_LENGTH)."\r\n", 2);
-        $badlen = str_repeat(str_repeat('1', PHPMailer5::MAX_LINE_LENGTH + 1) . "\r\n", 2);
-        $this->assertTrue(PHPMailer5::hasLineLongerThanMax($badlen), 'Long line not detected (only)');
-        $this->assertTrue(PHPMailer5::hasLineLongerThanMax($oklen . $badlen), 'Long line not detected (first)');
-        $this->assertTrue(PHPMailer5::hasLineLongerThanMax($badlen . $oklen), 'Long line not detected (last)');
+        $oklen = str_repeat(str_repeat('0', PHPMailer::MAX_LINE_LENGTH)."\r\n", 2);
+        $badlen = str_repeat(str_repeat('1', PHPMailer::MAX_LINE_LENGTH + 1) . "\r\n", 2);
+        $this->assertTrue(PHPMailer::hasLineLongerThanMax($badlen), 'Long line not detected (only)');
+        $this->assertTrue(PHPMailer::hasLineLongerThanMax($oklen . $badlen), 'Long line not detected (first)');
+        $this->assertTrue(PHPMailer::hasLineLongerThanMax($badlen . $oklen), 'Long line not detected (last)');
         $this->assertTrue(
-            PHPMailer5::hasLineLongerThanMax($oklen . $badlen . $oklen),
+            PHPMailer::hasLineLongerThanMax($oklen . $badlen . $oklen),
             'Long line not detected (middle)'
         );
-        $this->assertFalse(PHPMailer5::hasLineLongerThanMax($oklen), 'Long line false positive');
+        $this->assertFalse(PHPMailer::hasLineLongerThanMax($oklen), 'Long line false positive');
         $this->Mail->isHTML(false);
         $this->Mail->Subject .= ": Line length test";
         $this->Mail->CharSet = 'UTF-8';
@@ -1914,7 +1914,7 @@ EOT;
      */
     public function testMiscellaneous()
     {
-        $this->assertEquals('application/pdf', PHPMailer5::_mime_types('pdf'), 'MIME TYPE lookup failed');
+        $this->assertEquals('application/pdf', PHPMailer::_mime_types('pdf'), 'MIME TYPE lookup failed');
         $this->Mail->addCustomHeader('SomeHeader: Some Value');
         $this->Mail->clearCustomHeaders();
         $this->Mail->clearAttachments();
@@ -1932,19 +1932,19 @@ EOT;
         $this->assertTrue($this->Mail->set('AllowEmpty', false), 'Valid property set of null property failed');
         //Test pathinfo
         $a = '/mnt/files/飛兒樂 團光茫.mp3';
-        $q = PHPMailer5::mb_pathinfo($a);
+        $q = PHPMailer::mb_pathinfo($a);
         $this->assertEquals($q['dirname'], '/mnt/files', 'UNIX dirname not matched');
         $this->assertEquals($q['basename'], '飛兒樂 團光茫.mp3', 'UNIX basename not matched');
         $this->assertEquals($q['extension'], 'mp3', 'UNIX extension not matched');
         $this->assertEquals($q['filename'], '飛兒樂 團光茫', 'UNIX filename not matched');
         $this->assertEquals(
-            PHPMailer5::mb_pathinfo($a, PATHINFO_DIRNAME),
+            PHPMailer::mb_pathinfo($a, PATHINFO_DIRNAME),
             '/mnt/files',
             'Dirname path element not matched'
         );
-        $this->assertEquals(PHPMailer5::mb_pathinfo($a, 'filename'), '飛兒樂 團光茫', 'Filename path element not matched');
+        $this->assertEquals(PHPMailer::mb_pathinfo($a, 'filename'), '飛兒樂 團光茫', 'Filename path element not matched');
         $a = 'c:\mnt\files\飛兒樂 團光茫.mp3';
-        $q = PHPMailer5::mb_pathinfo($a);
+        $q = PHPMailer::mb_pathinfo($a);
         $this->assertEquals($q['dirname'], 'c:\mnt\files', 'Windows dirname not matched');
         $this->assertEquals($q['basename'], '飛兒樂 團光茫.mp3', 'Windows basename not matched');
         $this->assertEquals($q['extension'], 'mp3', 'Windows extension not matched');

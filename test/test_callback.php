@@ -5,8 +5,8 @@
 <body>
 
 <?php
-/* This is a sample callback function for PHPMailer5 Lite.
- * This callback function will echo the results of PHPMailer5 processing.
+/* This is a sample callback function for PHPMailer Lite.
+ * This callback function will echo the results of PHPMailer processing.
  */
 
 /* Callback (action) function
@@ -34,7 +34,7 @@ function callbackAction($result, $to, $cc, $bcc, $subject, $body)
 }
 
 require_once '../PHPMailerAutoload.php';
-$mail = new PHPMailer5();
+$mail = new PHPMailer();
 
 try {
     $mail->isMail();
@@ -50,7 +50,7 @@ try {
     $mail->send();
     echo "Message Sent OK</p>\n";
 } catch (phpmailerException $e) {
-    echo $e->errorMessage(); //Pretty error messages from PHPMailer5
+    echo $e->errorMessage(); //Pretty error messages from PHPMailer
 } catch (Exception $e) {
     echo $e->getMessage(); //Boring error messages from anything else!
 }

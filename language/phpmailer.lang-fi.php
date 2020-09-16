@@ -1,7 +1,7 @@
 <?php
 /**
- * Finnish PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Finnish PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Jyry Kuukanen
  */
 

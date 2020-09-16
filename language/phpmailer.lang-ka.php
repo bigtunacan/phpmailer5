@@ -1,7 +1,7 @@
 <?php
 /**
- * Georgian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Georgian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Avtandil Kikabidze aka LONGMAN <akalongman@gmail.com>
  */
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * Latvian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Latvian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Eduards M. <e@npd.lv>
  */
 

@@ -1,7 +1,7 @@
 <?php
 /**
- * Croatian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Croatian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Hrvoj3e <hrvoj3e@gmail.com>
  */
 

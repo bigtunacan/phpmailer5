@@ -1,7 +1,7 @@
 <?php
 /**
- * Faroese PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Faroese PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Dávur Sørensen <http://www.profo-webdesign.dk>
  */
 

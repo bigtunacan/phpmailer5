@@ -1,7 +1,7 @@
 <?php
 /**
- * Lithuanian PHPMailer5 language file: refer to English translation for definitive list
- * @package PHPMailer5
+ * Lithuanian PHPMailer language file: refer to English translation for definitive list
+ * @package PHPMailer
  * @author Dainius Kaupaitis <dk@sum.lt>
  */
 
